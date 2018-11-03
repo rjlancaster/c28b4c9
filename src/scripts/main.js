@@ -9,10 +9,12 @@ import ContactCollection from "./contactCollection.js"
 // import ContactList from "./contactList.js"
 import ContactForm from "./contactForm.js"
 
-// output.append(fetchContacts())
-
-const saveBtn = $("#saveBtn")
+const saveBtn = document.querySelector("#saveBtn")
 saveBtn.addEventListener("click", () => {
   let newContact = ContactForm.formatUserInput()
   ContactCollection.postContact(newContact)
 })
+
+const output = document.querySelector(".output")
+
+output.appendChild(ContactCollection.getContact())
