@@ -5,8 +5,6 @@
 */
 
 import ContactCollection from "./contactCollection.js"
-// import ContactFactory from "./contact.js"
-// import ContactList from "./contactList.js"
 import ContactForm from "./contactForm.js"
 
 const saveBtn = document.querySelector("#saveBtn")
@@ -17,4 +15,4 @@ saveBtn.addEventListener("click", () => {
 
 const output = document.querySelector(".output")
 
-output.appendChild(ContactCollection.getContact())
+ContactCollection.getContact().then(domString => output.innerHTML = domString)

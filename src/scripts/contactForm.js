@@ -5,7 +5,6 @@ const ContactForm = {
     const nameInput = $("#name--input").val()
     const phoneInput = $("#phone--input").val()
     const addressInput = $("#address--input").val()
-
     const contactToSave = {
       name: nameInput,
       phone: phoneInput,

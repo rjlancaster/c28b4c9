@@ -9,13 +9,17 @@ import ContactList from "./contactList.js"
 const ContactCollection = {
 
   getContact: () => {
-    fetch("http://localhost:8090/totalContacts")
+    return fetch("http://localhost:8090/totalContacts")
       .then(jsonData => jsonData.json())
-      .then(data => data.forEach(obj => {
-        console.log(obj);
-        let test = ContactList.printToDOM(obj)
-        return test
-      }))
+      .then(data => {
+        let domString = ""
+        data.forEach(obj => {
+          // console.log(obj)
+          const returnedNames = ContactList.printToDOM(obj)
+          domString += returnedNames
+        })
+        return domString
+      })
   },
   postContact: (newContact) => {
     fetch("http://localhost:8090/totalContacts", {
@@ -29,3 +33,5 @@ const ContactCollection = {
 }
 
 export default ContactCollection
+
+
